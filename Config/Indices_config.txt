@@ -1,0 +1,3 @@
+Manipulability
+Inverse Condition Number
+Minimum Singular Value

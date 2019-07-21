@@ -1,0 +1,24 @@
+#Couple
+1
+
+#Joint Limit
+0
+
+#Mento Carlo
+0
+
+#Iteration
+0
+
+#Joint Num
+15
+
+#Precision
+0.02
+
+#Error
+0.0001
+
+
+
+

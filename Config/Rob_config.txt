@@ -1,0 +1,54 @@
+#Robot Number
+4
+
+#Robot Type1
+Articulated
+
+#Transformation Matrix1
+1 0 0 0.10
+
+0 1 0 0
+
+0 0 1 0.40
+
+0 0 0 1
+
+
+#Robot Type2
+Articulated
+
+#Transformation Matrix2
+1 0 0 -0.10
+
+0 1 0 0
+
+0 0 1 0.40
+
+0 0 0 1
+
+
+#Robot Type3
+Spherical
+
+#Transformation Matrix3
+0 -1 0 0.10
+
+1 0 0 0.40
+0 0 1 0
+
+0 0 0 1
+
+
+#Robot Type4
+Spherical
+
+#Transformation Matrix4
+0 -1 0 -0.10
+
+1 0 0 0.40
+0 0 1 0
+
+0 0 0 1
+
+
+

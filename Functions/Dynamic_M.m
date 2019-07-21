@@ -1,0 +1,43 @@
+function [m] = Dynamic_M(robot, q, varargin)
+
+    opt.axes = {'T', 'all', 'R'};
+    opt.dof = [];
+
+    opt = tb_optparse(opt, varargin);
+    
+    if isempty(opt.dof)
+        switch opt.axes
+            case 'T'
+                dof = [1 1 1 0 0 0];
+            case 'R'
+                dof = [0 0 0 1 1 1];
+            case 'all'
+                dof = [1 1 1 1 1 1];
+        end
+    else
+        dof = opt.dof;
+    end
+    opt.dof = logical(dof);
+    J = robot.jacob0(q);
+    
+    if rank(J) < 6
+        warning('robot is in degenerate configuration')
+        m = 0;
+        return;
+    end
+
+    Ji = pinv(J);
+    M = robot.inertia(q);
+    Mx = Ji' * M * Ji;
+    d = find(opt.dof);
+    Mx = Mx(d,d);
+    e = eig(Mx);
+    m = min(e) / max(e);
+    
+%mx = Mx;
+    %{
+    if nargout > 1
+        mx = Mx;
+    end
+    %}
+end

@@ -1,0 +1,12 @@
+Manipulability
+Inverse Condition Number
+Minimum Singular Value
+Order-Independent Manipulability
+Harmonic Mean Manipulability Index
+Isotropic Index
+Dynamic Manipulability
+Dynamic Inverse Condition Number
+Dynamic Minimum Singular Value
+Dynamic Order-Independent Manipulability
+Dynamic Harmonic Mean Manipulability Index
+Dynamic Isotropic Index
