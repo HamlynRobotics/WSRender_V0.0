@@ -274,9 +274,8 @@ P = P.*repmat(scale,length(P),1);
  P = P+off;
 
  % new volume
-shp_slave_init.Points = P;
-
- %V = shp_slave_init.volume; % more accurate bu slower
+%  shp_new = alphaShape(P(:,1),P(:,2),P(:,3));
+ %V = shp_new.volume; % more accurate bu slower
  
  [~,V] = boundary(P(:,1),P(:,2),P(:,3),1); % to speed up computation but
 %  more approximtaed

@@ -1,5 +1,8 @@
 %% Function for running the scaling GUI.
 % The input is the configuration file.
+% e.g.
+% file = "robots_config.txt"
+% run GUI(file)
 
 function varargout = GUI(varargin)
 %GUI MATLAB code file for GUI.fig
@@ -25,7 +28,7 @@ function varargout = GUI(varargin)
 
 % Edit the above text to modify the response to help GUI
 
-% Last Modified by GUIDE v2.5 17-May-2019 08:08:15
+% Last Modified by GUIDE v2.5 25-May-2019 21:48:48
 
 % Begin initialization code - DO NOT EDIT
 gui_Singleton = 1;
@@ -128,8 +131,8 @@ handles.Shapes_handles.h_shp_dext = cell(2,1); % handle to alphashape dext WS
 start_button = handles.Start_button;
 set(start_button,'BackgroundColor',[1 0 0]);
 
-handles.dexterity{1} = "WS"; % choice of WS to plot for master
-handles.dexterity{2} = "WS"; % choice of WS to plot for slave
+handles.dexterity{1} = "Total WS"; % choice of WS to plot for master
+handles.dexterity{2} = "Total WS"; % choice of WS to plot for slave
 
 handles.SlaveWSData = P_ws{2}'; % for plotting slave WS in its frame
 handles.MasterWSData = P_ws{1}'; % for plotting slave WS in its frame
@@ -144,6 +147,8 @@ handles.percentages{2} = str2num(handles.WS2_perc.String); % [min, max] for slav
 handles.alpha = []; % [master,slave] for better WS resolution
 handles.alpha_dext = []; % [master,slave] for better dext WS resolution
 
+set(handles.MasterWS.Title,'String','Master WS');
+set(handles.SlaveWS.Title,'String','Slave WS');
 % Update handles structure
 guidata(hObject, handles);
 
@@ -244,32 +249,56 @@ for nw = 1:2
     P = vals(1:3,:);
     
     switch handles.dexterity{nw}
-    case 'WS'
+    case 'Total WS'
         disp("Whole WS considered");
         dext = [];
-    case 'k1'
+    case 'Kine Manipul'
         disp("Kinematic Dexterity Measure considered");
         dext = vals(4,:);
         
-    case 'k2'
+    case 'Kine Inv Cond Numb'
         disp("Kinematic Condition Number considered");
         dext = vals(5,:);
         
-    case 'k3'
+    case 'Kine Min Sing Value'
         disp("Kinematic Minimum Eigenvalue considered");
         dext = vals(6,:);
         
-    case 'd1'
+    case 'Kine Order Indep Manip'
         disp("Dynamic Dexterity Measure considered");
         dext = vals(7,:);
         
-    case 'd2'
+    case 'Kine Harmonic Mean'
         disp("Dynamic Condition Number considered");
         dext = vals(8,:);
         
-    case 'd3'
+    case 'Kine Isotropic Index'
         disp("Dynamic Minimum Eigenvalue considered");
         dext = vals(9,:);
+        
+        case 'Dyn Manipul'
+        disp("Dynamic Dexterity Measure considered");
+        dext = vals(10,:);
+        
+    case 'Dyn Inv Cond Numb'
+        disp("Dynamic Condition Number considered");
+        dext = vals(11,:);
+        
+    case 'Dyn Min Sing Value'
+        disp("Dynamic Minimum Eigenvalue considered");
+        dext = vals(12,:);
+        
+    case 'Dyn Order Indep Manip'
+        disp("Dynamic Order Indep Measure considered");
+        dext = vals(13,:);
+        
+    case 'Dyn Harmonic Mean'
+        disp("Dynamic Harmonic Mean considered");
+        dext = vals(14,:);
+        
+    case 'Dyn Isotropic Index'
+        disp("DynamicIsotropic Index considered");
+        dext = vals(15,:);
         
     end
 
@@ -529,6 +558,3 @@ function WS2_perc_CreateFcn(hObject, eventdata, handles)
 if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
     set(hObject,'BackgroundColor','white');
 end
-
-
-
