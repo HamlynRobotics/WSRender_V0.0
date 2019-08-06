@@ -1,3 +1,16 @@
+% Input:
+% Pop: index mode for visualization in the GUI
+% Dex: local indices distribution map
+% Volume_Info: volume data information
+% Flag_Info: flag information
+% 
+% Output:
+% String_Out: the name of mode
+% 
+% Function:
+% Visualize the workspace by rendering in different modes
+
+
 function [String_Out] = WS_Visualization(pop,Dex,Volume_Info,Flag_Info)
     Slice_Flag = Flag_Info(1); Bimanual = Flag_Info(2); 
     
@@ -27,14 +40,14 @@ function [String_Out] = WS_Visualization(pop,Dex,Volume_Info,Flag_Info)
         case 2 
              String_Out = strcat(Evaluation_Index,'Volume Data') ;
              if Bimanual == 0    
-                 [TransferSingle] = Visualize_SingleVolumeData(Volume_Info.Boundary_Single,Volume_Info.V,Volume_Info.Volume_Size,Volume_Info.Precision);
+                 [TransferSingle] = Visualize_SingleVolumeData(Volume_Info.Boundary_Robot,Volume_Info.V,Volume_Info.Volume_Size,Volume_Info.Precision);
              else
                 % Visualize Interact Volume Data
                 [TransferRight,TransferLeft,TransferDual] = Visualize_VolumeData(Volume_Info.Boundary_Robot,Volume_Info.VLeft_Robot,Volume_Info.VRight_Robot,Volume_Info.Volume_Size_Robot,Volume_Info.Precision,'Scatter');
              end
         case 3
             String_Out = strcat(Evaluation_Index,'Convhulln') ;
-            [Point_Right,Point_Left,Volume_R,Volume_L] = Visual_Dex_Convhulln(Dex,Dex);
+            [Volume_R,Volume_L] = Visual_Dex_Convhulln(Dex,Dex);
         case 4
             String_Out = strcat(Evaluation_Index,'Isosurface') ;
             [A] = Visual_Isosurface(Dex,Volume_Info.Boundary_Single,Volume_Info.Precision);
@@ -54,7 +67,10 @@ function [String_Out] = WS_Visualization(pop,Dex,Volume_Info,Flag_Info)
             [OUT] = Boundary_WS(Dex,Slice(4));
         case 7
             String_Out = strcat(Evaluation_Index,'Alphashape') ;
-            [Out] = AlphaShape_WS(Dex,Slice(5));
+            shp = alphaShape(Dex(:,1:3),Slice(5));
+            plot(shp)
+            axis equal
+            %[Out] = AlphaShape_WS(Dex,Slice(5));
         case 8
             String_Out = strcat(Evaluation_Index,'Reachable') ;
             if Bimanual == 0

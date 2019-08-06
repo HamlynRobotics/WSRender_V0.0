@@ -1,6 +1,19 @@
+% Input:
+% type : Type of the robot for evaluation
+% 
+% Output:
+% BaseRight: the default base vector of the right robotic manipulator
+% BaseLeft: the default base vector of the left robotic manipulator
+% 
+% Function:
+% Generate the default base vector of a specific robot
+% 
+% Example:
+% [BaseRight,BaseLeft] = Base_Define('Articulated');
+
+
 function [BaseRight,BaseLeft] =Base_Define(type)
 
-   
     switch type
         case 'Articulated'
             % for articulated robot

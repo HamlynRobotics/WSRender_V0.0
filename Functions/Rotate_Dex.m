@@ -1,3 +1,14 @@
+% Input:
+% Dex: local indices distribution map
+% Angle: rotation degree
+% 
+% Output:
+% New_Dex: the new local indices distribution map after rotation
+% 
+% Function:
+% Rotate the local indices distribution map
+
+%%
 function [New_Dex] = Rotate_Dex(Dex,Angle,varargin)
     New_Dex = Dex; [Count,~] = size(Dex);
     opt.axis = {'z','x','y'};

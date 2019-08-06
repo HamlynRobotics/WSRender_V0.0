@@ -1,3 +1,15 @@
+% Input:
+% Dex_Group: the local indices distribution map of several robots
+% Pre: precision of the volume data convertion
+% 
+% Output:
+% Boundary: boundary of the volume data
+% Volume_Size: size of the volume data
+% 
+% Function:
+% Load Data for Visualization 
+
+
 function [Boundary,Volume_Size] = Define_Volume(Dex_Group,Pre)
     [~,Robot_Num] = size(Dex_Group);
     Boundary = zeros(3,2);

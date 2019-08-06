@@ -1,3 +1,19 @@
+% Input:
+% Robot: The robot defined using ‘BuildRobot’ function
+% 
+% Output:
+% Length_Sum: the total length of the robot
+% Prismatic_Num: the number of prismatic joint
+% Precision: the precision for workspace discretization
+% 
+% Function:
+% Initial parameters for workspace visualization
+% 
+% Example:
+% [N_DoF,Robot] = BuildRobot('Articulated');
+% [Length_Sum,Prismatic_Num,Precision] = Initial_Precision(Robot);  
+
+%%
 function [length_sum,Prismatic_Num,Precision,Error] = Initial_Precision(Robot)
     %[N_DoF,~] = size(Robot.qlim);
     Q = Robot.qlim;

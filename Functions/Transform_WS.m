@@ -1,3 +1,14 @@
+% Input:
+% Dex: local indices distribution map
+% Base: The transform vector
+% 
+% Output:
+% Out_Dex: the new local indices distribution map after rotation
+% 
+% Function:
+% Rotate and transform the local indices distribution map
+
+
 function [Out_Dex] = Transform_WS(Dex,Base)
     Out_Dex = Dex;
     

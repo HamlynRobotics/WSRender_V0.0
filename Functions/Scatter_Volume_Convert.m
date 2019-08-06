@@ -1,5 +1,19 @@
+% Input:
+% Dex_Group: the local indices distribution map of several robots
+% Pre: precision of the volume data convertion Boundary: boundary of the volume data
+% Volume_Size: size of the volume data 
+% opt.mode = {'General','Manipulability','ICN','MSV'};
+% 
+% Output:
+% V_All: The overall volume data of multi-robots
+% V_Group: The volume data registered in the same boundary
+% 
+% Function:
+% Convert several local indices distribution map to volume data mode, especially for multi-robot interaction
+
+
 function[V_All,V_Group] = Scatter_Volume_Convert(Dex_Group,Pre,Boundary,Volume_Size,varargin)
-    opt.mode = {'General','Intuitive','Manipulability','ICN','MSV'};
+    opt.mode = {'General','Manipulability','ICN','MSV'};
     opt = tb_optparse(opt, varargin);
     [~,Robot_Num] = size(Dex_Group);
 
@@ -35,7 +49,6 @@ function[V_All,V_Group] = Scatter_Volume_Convert(Dex_Group,Pre,Boundary,Volume_S
             if bb(i) > A
                 bb(i)= A;
             end
-
 
             if aa(i) > B
                 aa(i)= B;

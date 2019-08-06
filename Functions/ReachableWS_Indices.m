@@ -1,3 +1,19 @@
+% Input:
+% Robot: the robot for analysis
+% QS: a list of pose
+% Joint_Flag: the flag about whether to consider joint limitation or not
+% opt.save = {'Save','UnSave'};
+% opt.evaluate = {'On','Off'};
+% opt.Indice = {}; opt.Path = [];
+% 
+% Output:
+% Dex : local indices distribution map
+% 
+% Function:
+% Calculate local indices distribution map
+% 
+% Example:
+
 function [Dex,path,O_Volume,Volume] = ReachableWS_Indices(Robot,QS,Joint_Flag ,varargin)
     [Count,~] = size(QS);  Mid_Point = zeros(Count,3);
     % Transfer Indice Name to Array Number
@@ -7,7 +23,9 @@ function [Dex,path,O_Volume,Volume] = ReachableWS_Indices(Robot,QS,Joint_Flag ,v
     opt.save = {'Save','UnSave'};
     opt.evaluate = {'On','Off'};
     %opt.volume = {'Common','Operating'};
-    opt.Indice = {}; opt.Path = [];  opt = tb_optparse(opt, varargin);
+    opt.Indice = {}; 
+    opt.Path = [];  
+    opt = tb_optparse(opt, varargin);
     
     if isempty(opt.Path)
         filename = 'LocalIndice_Map';   path = '.\\Data\\LocalIndice_Map';           

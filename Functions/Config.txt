@@ -1,0 +1,13 @@
+1      RobotNumber   
+0      RobotA_X          
+0      RobotA_Y         
+0      RobotA_Z          
+0      RobotA_RX       
+0      RobotA_RY         
+0      RobotA_RZ       
+0      RobotB_X          
+0      RobotB_Y         
+0      RobotB_Z          
+0      RobotB_RX       
+0      RobotB_RY         
+0      RobotB_RZ       

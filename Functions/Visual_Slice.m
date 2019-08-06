@@ -1,3 +1,17 @@
+% Input:
+% V: volume data
+% Boundary_Single: the boundary of the volume data
+% Precision: precision degree
+% 
+% Output:
+% Out: default 1
+% 
+% Function:
+% Visualize volume data in slice mode
+% 
+% Example:
+
+
 function [out] = Visual_Slice(V,Boundary_Single,Precision,varargin)
     opt.X = [];
     opt.Y = [];

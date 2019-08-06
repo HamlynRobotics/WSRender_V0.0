@@ -1,6 +1,24 @@
+% Input:
+% Dex: local indices distribution map
+% 
+% Option:
+%     opt.evaluate = {'Reachable','Local_Indices'};
+%     opt.robotnum = {'SingleArm','Bimanual'};
+%     opt.vector = [];
+%     opt.Index = [];
+%     opt.color = {'y','g','r','b'};
+%     
+% Output:
+% Out: default 1
+% 
+% Function:
+% Visualization and rendering of the workspace
+
+
 function [out] = VisualWS(Dex,varargin)
     opt.evaluate = {'Reachable','Local_Indices'};
     opt.robotnum = {'SingleArm','Bimanual'};
+    opt.color = {'y','g','r','b'};
     opt.vector = [];
     opt.Index = [];
     opt = tb_optparse(opt, varargin);
@@ -21,7 +39,7 @@ function [out] = VisualWS(Dex,varargin)
         case 'Reachable'
             switch opt.robotnum
                 case 'SingleArm'
-                    plot3(Dex(:,1),Dex(:,2),Dex(:,3),'*y'); hold on;
+                    plot3(Dex(:,1),Dex(:,2),Dex(:,3),opt.color); hold on;
                 case 'Bimanual'
                     %plot3(Dex(:,1)+Vector(1),Dex(:,2)+Vector(2),Dex(:,3)+Vector(3),'*g'); hold on;  
                     %plot3(Dex(:,1)+Vector(4),Dex(:,2)+Vector(5),Dex(:,3)+Vector(6),'*y'); hold on;  

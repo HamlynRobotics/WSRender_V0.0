@@ -1,9 +1,33 @@
+% Input:
+% Dex: local indices distribution map
+% Pre: precision
+% opt.evaluate = {'Manipulability','InverseCN','MSV','ConditionNumber','OI_Manipulability','Reachable'};
+% 
+% Output:
+% V: the obtained volume data
+% Boundary: the boundary of the volume data
+% Volume_Size: the size of the volume data
+% 
+% Function:
+% Convert single manipulator’s local indices distribution map to volume data mode. 
+
+
 function [V,Boundary,Volume_Size] = SingleScatterToVolume(Dex,Pre,varargin)
-    opt.evaluate = {'Manipulability','InverseCN','MSV','ConditionNumber','OI_Manipulability','Reachable'};
+    opt.evaluate = {'Manipulability','Inverse Condition Number','MSV','ConditionNumber','OI_Manipulability','Reachable'};
+    opt.Path = [];
     opt = tb_optparse(opt, varargin);
     
     [Count,~] = size(Dex);
     Boundary = zeros(3,2);
+    
+    if isempty(opt.Path)
+        filename = 'Volume_Data';   path = '.\\Data\\Volume_Data';           
+    else
+        filename = opt.Path; addpath('../'); Folder = pwd;
+        path = fullfile(Folder,'Data',[filename, num2str(Count)]);
+    end
+    
+
 
     xminH = min(Dex(:,1));xmaxH = max(Dex(:,1));
     yminH = min(Dex(:,2));ymaxH = max(Dex(:,2));
@@ -71,6 +95,15 @@ function [V,Boundary,Volume_Size] = SingleScatterToVolume(Dex,Pre,varargin)
         else
             V(bb(i),aa(i),cc(i)) =Dex(i,Flag);
         end
+    end
+    
+    
+     switch opt.save
+        case 'Save'
+            save(path,'V');
+        case 'UnSave'
+            path = 'N'; 
+            out = 'UnSave';
     end
 
 end

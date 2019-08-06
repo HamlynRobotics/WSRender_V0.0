@@ -1,4 +1,6 @@
-function [Point_Right,Point_Left,Volume_R,Volume_L] = Visual_Dex_Convhulln(Right,Left,varargin)
+
+
+function [Volume_R,Volume_L] = Visual_Dex_Convhulln(Right,Left,varargin)
     opt.visual = {'Single','Bimanual','Off'};
     opt = tb_optparse(opt, varargin);
  
@@ -6,7 +8,6 @@ function [Point_Right,Point_Left,Volume_R,Volume_L] = Visual_Dex_Convhulln(Right
     [K,Volume_L] = convhulln(P);
     Point_Left = P;
    
-
         [k1,k2] = size(K);
         NewSurf = zeros(k1,3);
 

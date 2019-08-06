@@ -1,3 +1,24 @@
+% Input:
+% Robot: the robot model in Matlab
+% Flag: Couple_Flag
+% 
+% Option:
+% opt.type = {'General','MentoCarlo'};
+% 'MentoCarlo': Mento Carlo method for joint generation
+% 'JointNum': define the number of segmentation of each joint
+% opt.save = {'Save','UnSave'};
+% 
+% Output:
+% QS: Joint Value Combination Map
+% Count: Number of the pose
+% 
+% Function:
+% Generate joint value combination map, a list of pose
+% 
+% Example:
+% [QS,Count]=Generate_Joint(Robot,1,'MentoCarlo','JointNum',15);
+
+%%
 function [QS,Count] = Generate_Joint(Robot,Flag,varargin)
 
     opt.JointNum = [];
