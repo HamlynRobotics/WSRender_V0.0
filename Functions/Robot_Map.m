@@ -1,3 +1,15 @@
+% Input:
+% Num: id
+% opt.Type = {'Robot','Environment'};
+% 
+% Output:
+% RobotType: The type of robot for evaluation
+% Env_Type: The type of environment for reference
+% 
+% Function:
+% Obtain robot type and environment type
+
+
 function [RobotType,Env_Type] = Robot_Map(Num,varargin)
     opt.Type = {'Robot','Environment'};
     opt = tb_optparse(opt, varargin);

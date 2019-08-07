@@ -1,3 +1,16 @@
+% Input:
+% Dex: Local Indices distribution map 
+% 
+% Output:
+% Indices: number of indices
+% Global_Indices: modified global indices
+% 
+% Function:
+% General form for Global Evaluation
+% 
+% Example:
+% [Indices,Global_Indices] = GlobalEvaluate(Dex);
+
 function [Indices,Global_Indices] = GlobalEvaluate(Dex,varargin)
     opt.evaluate = {'General'};
     opt.Indice = [];

@@ -1,16 +1,35 @@
+% Input:
+% Dex: local indices distribution map
+% Pre: precision degree
+% BaseRight: right manipulator base coordinate
+% BaseLeft: left manipulator base coordinate
+% Option:
+%     opt.evaluate = {'Manipulability','InverseCN','MSV'};
+%     opt.visual = {'Visual_Off','Visual_On'};
+%     opt.bimanual={'Single','BimanualRobot','BimanualArm'};
+% 
+% Output:
+% VDualArm: bimanual robot overall workspace
+% VLeft: left manipulator volume data
+% VRight: right manipulator volume data
+% Boundary: boundary of the volume data
+% Volume_Size: size of the volume data 
+% 
+% Function:
+% Convert single/bimanual robot local indices distribution map to volume data mode
+% 
+% Example:
+
+
 function[VDualArm,VLeft,VRight,Boundary,Volume_Size] = ScatterToVolume(Dex,Pre,BaseRight,BaseLeft,varargin)
-    opt.evaluate = {'Manipulability','InverseCN','MSV'};
+    opt.save = {'Save','UnSave'};
     opt.visual = {'Visual_Off','Visual_On'};
     opt.bimanual={'Single','BimanualRobot','BimanualArm'};
     opt = tb_optparse(opt, varargin);
 
-    switch opt.evaluate
-        case 'Manipulability'
-    end
-    
     switch opt.bimanual
         case 'BimanualArm'
-            Left=[Dex(:,1)-20,Dex(:,2),Dex(:,3),Dex(:,4)];
+            Left=[Dex(:,1)-0.20,Dex(:,2),Dex(:,3),Dex(:,4)];
             Right=[Dex(:,1),Dex(:,2),Dex(:,3),Dex(:,4)];
         case 'BimanualRobot'
             Left=[Dex(:,1) + BaseLeft(1) ,Dex(:,2) + BaseLeft(2),Dex(:,3) + BaseLeft(3) ,Dex(:,4)];
@@ -93,7 +112,13 @@ function[VDualArm,VLeft,VRight,Boundary,Volume_Size] = ScatterToVolume(Dex,Pre,B
             pD.EdgeColor = 'none';
             hold on;
             
-        
+                    
+            iso_surfD = isosurface(xxH,yyH,zzH,VRight,iso_val);
+            pD = patch(iso_surfD,'FaceAlpha',0.3);
+            isonormals(xxH,yyH,zzH,VRight,pD)
+            pD.FaceColor = 'green';
+            pD.EdgeColor = 'none';
+            hold on;
     end
     
 end

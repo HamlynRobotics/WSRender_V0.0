@@ -1,3 +1,18 @@
+% Input:
+% Dex_Group,
+% Boundary,
+% Volume_Size,
+% Precision,
+% opt.visual = {'Off','Bimanual','Seperate','Scatter'};
+% opt.color = {'r','b'};
+% 
+% Output:
+% Volume_All: the overall workspace volume of multi robots
+% Volume_Interact: the intersection workspace volume of multi robots
+% 
+% Function:
+% Calculate the overall/intersection workspace volume of multi robots
+
 function [Volume_All,Volume_Interact] = Find_Interact_Bimanual(Dex_Group,Boundary,Volume_Size,Precision,varargin)
 %% Interaction Analysis
     opt.visual = {'Off','Bimanual','Seperate','Scatter'};

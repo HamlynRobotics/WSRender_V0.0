@@ -1,3 +1,20 @@
+% Input:
+% Option?
+% opt.type = {'Environment','Placement','Parameters','Indices','All_Indices'};
+% default?
+% type = 'Environment';
+% 
+% Output:
+% Config_file: List of robots
+% Out: Struct, contents of config/environment txt files
+% 
+% Function:
+% Read configurations
+% 
+% Example:
+% [file_dir,Configs] = ReadFiles('Placement');
+
+%%
 function [Robots_Name,Out] = ReadFiles(varargin)
     opt.type = {'Environment','Placement','Parameters','Indices','All_Indices'};
     opt = tb_optparse(opt, varargin); 

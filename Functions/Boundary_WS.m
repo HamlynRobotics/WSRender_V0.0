@@ -1,3 +1,15 @@
+% Input:
+% Dex,Value
+% Option
+% opt.color = {'r','b','g','off'};
+% 
+% Output:
+% V: volume of the workspace
+% 
+% Function:
+% Visualize the boundary of the workspace and calculate the volume of the workspace
+
+
 function [v] = Boundary_WS(Dex,Value,varargin)
     Data = [Dex(:,1),Dex(:,2),Dex(:,3)];
     opt.color = {'r','b','g','off'};
