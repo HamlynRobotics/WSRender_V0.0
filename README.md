@@ -9,6 +9,7 @@ email: d.zhang17@imperial.ac.uk
 The link for paper: https://ieeexplore.ieee.org/search/searchresult.jsp?newsearch=true&queryText=WSRender
 
 Citation:
+
 @article{zhang2019wsrender,
   title={WSRender: A Workspace Analysis and Visualization Toolbox for Robotic Manipulator Design and Verification},
   author={Zhang, Dandan and Cursi, Francesco and Yang, Guang-Zhong},
@@ -24,6 +25,11 @@ The link for the i) video introduction, ii) documentations and iii) tutorials is
 https://drive.google.com/open?id=1DBQpbzhAX6HyNKT4I-PGdcJvP0ZVKYWh
 
 Pre-Requisites:
-1. Matlab 2018
-2. Install Matlab Robotic Toolbox 9.10
-3. Install Matlab Robotics System Toolbox
+If you want to use the Matlab version:
+1. Install Matlab Robotic Toolbox 9.10
+2. Install Matlab Robotics System Toolbox
+
+If you have a new robot design and want to use the C++ codes:
+3. Install Orocos Kinematics and Dynamics Library (KDL)
+
+More information can be viewed in the Wiki.
